@@ -1,11 +1,10 @@
 package com.devsuperior.dscatalog.entities;
 
-import javassist.SerialVersionUID;
-
 import java.io.Serializable;
 import java.util.Objects;
 
 public class Category implements Serializable {
+//  serializable permite que o objeto seja convertido em bytes
     private static final long seriaLVersionUID = 1L;
     private Long id;
     private String name;
