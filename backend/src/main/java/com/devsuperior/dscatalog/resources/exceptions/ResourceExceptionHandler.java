@@ -17,24 +17,24 @@ public class ResourceExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<StandardError> resourceNotFound(ResourceNotFoundException e, HttpServletRequest request){
         HttpStatus status = HttpStatus.NOT_FOUND;
-        StandardError erro = new StandardError();
-        erro.setTimestamp(Instant.now());
-        erro.setStatus(status.value());
-        erro.setError("Resource not found");
-        erro.setMessage(e.getMessage());
-        erro.setPath(request.getRequestURI());
-        return ResponseEntity.status(status).body(erro);
+        StandardError error = new StandardError();
+        error.setTimestamp(Instant.now());
+        error.setStatus(status.value());
+        error.setError("Resource not found");
+        error.setMessage(e.getMessage());
+        error.setPath(request.getRequestURI());
+        return ResponseEntity.status(status).body(error);
     }
 
     @ExceptionHandler(DatabaseException.class)
     public ResponseEntity<StandardError> database(DatabaseException e, HttpServletRequest request){
         HttpStatus status = HttpStatus.BAD_REQUEST;
-        StandardError erro = new StandardError();
-        erro.setTimestamp(Instant.now());
-        erro.setStatus(status.value());
-        erro.setError("Database exception");
-        erro.setMessage(e.getMessage());
-        erro.setPath(request.getRequestURI());
-        return ResponseEntity.status(status).body(erro);
+        StandardError error = new StandardError();
+        error.setTimestamp(Instant.now());
+        error.setStatus(status.value());
+        error.setError("Database exception");
+        error.setMessage(e.getMessage());
+        error.setPath(request.getRequestURI());
+        return ResponseEntity.status(status).body(error);
     }
 }
